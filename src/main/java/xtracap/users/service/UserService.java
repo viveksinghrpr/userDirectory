@@ -26,12 +26,12 @@ public class UserService {
     }
 
 
-    public int getTotalUsers(int size) {
+    public int getTotalPages(int size) {
         int totalUsers = userRepository.getUsersCount();
         if(totalUsers == 0){
             throw new NoUsersFoundException();
         }
-        int totalPages = (totalUsers/size) + 1;
+        int totalPages = totalUsers % size == 0 ? (totalUsers/size) : (totalUsers/size) + 1;
         return totalPages;
     }
 

@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import xtracap.users.entity.User;
 import xtracap.users.exception.NoUsersFoundException;
-import xtracap.users.repository.UserRepository;
 import xtracap.users.service.UserService;
 import javax.validation.Valid;
 import java.util.List;
@@ -33,7 +32,7 @@ public class UserController {
             model.addAttribute("user", new User());
             model.addAttribute("users", userService.findAllUsers(page * size, size));
             model.addAttribute("currentPage", page);
-            model.addAttribute("totalPages", userService.getTotalUsers(size));
+            model.addAttribute("totalPages", userService.getTotalPages(size));
         } catch (NoUsersFoundException e) {
             model.addAttribute("errorMessage", "No users found.");
             return "users";
