@@ -44,5 +44,4 @@ public class User {
     @Pattern(regexp = "^[A-Z a-z]{5}[0-9]{4}[A-Z a-z]$", message = "Invalid PAN number format")
     private String panNumber;
 
-    // Getters and setters (omitted for brevity)
 }
